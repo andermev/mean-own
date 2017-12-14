@@ -1,0 +1,25 @@
+<input type="text" [(ngModel)] = "message.content">
+
+<!--component using ng directives-->
+<!--
+<article class="panel panel-default" 
+[ngStyle]="{backgroundColor : color}" 
+(mouseenter) = "color = 'green'">
+-->
+
+<article class="panel panel-default" 
+    [ngStyle]="{backgroundColor : color}" 
+    (mouseenter) = "color = 'green'">
+    <div class="panel-body">
+        {{message.content}}
+    </div>
+    <div class="footer panel-footer">
+        <div class="author">
+            {{message.username}}
+        </div>
+        <div class="config">
+            <a href="#" (click)="onEdit()">Edit</a>
+            <a href="#">Delete</a>
+        </div>
+    </div>
+</article>
