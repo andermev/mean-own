@@ -14,8 +14,8 @@ export class MessageInputComponent{
     }
 
     onSubmit(form : NgForm) {
-        console.log(form);
-        //const message = new Message(value, 'Ander');
-        //this.messageService.addMessage(message);
+        const message = new Message(form.value.content, 'Ander');
+        this.messageService.addMessage(message);
+        form.resetForm();
     }
 }
