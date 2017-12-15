@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { MessageService } from "./message.service";
 import { Message } from "./message.model";
-import { NgForm } from "@angular/forms/src/directives/ng_form";
+import { NgForm } from "@angular/forms";
 
 @Component({
     selector : 'app-message-input',
@@ -15,7 +15,11 @@ export class MessageInputComponent{
 
     onSubmit(form : NgForm) {
         const message = new Message(form.value.content, 'Ander');
-        this.messageService.addMessage(message);
+        this.messageService.addMessage(message)
+        .subscribe(
+            data => console.log(data),
+            error => console.error(error)
+        );
         form.resetForm();
     }
 }
