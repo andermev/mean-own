@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Message } from "./message.model";
+import { MessageService } from "./message.service";
 
 @Component({
     selector: 'app-message',
@@ -26,7 +27,15 @@ export class MessageComponent{
     //attribute binding html tag
     //color = 'red';
 
+    constructor(private messageService : MessageService){
+
+    };
+
     onEdit(){
         this.editClicked.emit('A new event');
+    }
+
+    onDelete(){
+        this.messageService.deleteMessage(this.message);
     }
 }
